@@ -104,7 +104,6 @@ public class EmployeeTest {
     public void findById() {
 
         Employee employee = employeeRepository.findById(13);       
-   //   Mockito.when(employeeService.findEmployeeById(13)).thenReturn(employee);
         assertEquals(employeeService.findEmployeeById(13), employee);
 
     }
@@ -121,15 +120,12 @@ public class EmployeeTest {
 
     @Test
     public void findByProject(){
-       // Employee employee= employeeRepository.findById(13);
         try {
             employeeService.findByProjectName("Megha");
         }
         catch (Exception ex){}
         List<Employee>employeeList = new ArrayList<>();
         when(employeeRepository.findByProject("passport")).thenReturn(employeeList);
-        //verify(employeeRepository).findByProject("passport");
-        // assertEquals(Optional.of(employeeService.findByProjectName("passport")), Optional.of(employeeList));
 
     }
     @Test
@@ -141,7 +137,7 @@ public class EmployeeTest {
     }
     @Test
     public  void findByUserName(){
-        List<Review >reviewList= reviewService.findByUserName("sravani");       // employeeService.save(employee);
+        List<Review >reviewList= reviewService.Empid(2);      
         Mockito.when(reviewService.findByEmpid(2)).thenReturn(reviewList);
         assertEquals(reviewService.findByEmpid(2), reviewList);
 
@@ -150,7 +146,6 @@ public class EmployeeTest {
     public void listOfEmpWithSameProject(){
     
           List<Employee> employeeList=  employeeRepository.findByProject("passport");
-       //System.out.println(employeeList);
         Mockito.when(employeeService.findByProject(9)).thenReturn(employeeList);
         assertEquals(employeeService.findByProject(9), employeeList);
 
@@ -166,10 +161,10 @@ public class EmployeeTest {
     @Test
     public void deleteReview() {
 
-       /* reviewService.deleteByName("Madhu");
-        List<Review>reviewList= reviewRepository.findByUsername("madhu");
+       reviewService.deleteByName("Madhu");
+        List<Review>reviewList= reviewRepository.findByEmpId(1);
         Mockito.verify(reviewRepository, Mockito.times(1)).deleteAll(reviewList);
-*/
+
     }
     @Test
     public  void findByUserName1(){
