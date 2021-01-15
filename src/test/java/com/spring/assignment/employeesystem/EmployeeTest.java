@@ -103,8 +103,7 @@ public class EmployeeTest {
     @Test
     public void findById() {
 
-        Employee employee = employeeRepository.findById(13).get();       // employeeService.save(employee);
-   //   Mockito.when(employeeService.findEmployeeById(13)).thenReturn(employee);
+        Employee employee = employeeRepository.findById(13).get();       
         assertEquals(employeeService.findEmployeeById(13), employee);
 
     }
@@ -143,15 +142,14 @@ public class EmployeeTest {
         assertEquals(reviewService.findByEmpId(1), reviewList);
 
     }
-  /*  @Test
+   @Test
     public void listOfEmpWithSameProject(){
-    E
-          //List<Employee> employeeList=  employeeRepository.findByProject("passport");
-       //System.out.println(employeeList);
+    
+         List<Employee> employeeList=  employeeRepository.findByProject("passport");
         Mockito.when(employeeService.findByProject(9)).thenReturn(employeeList);
         assertEquals(employeeService.findByProject(9), employeeList);
 
-    }*/
+    }
     @Test
     public void delete() {
         employeeService.deleteById(9);
